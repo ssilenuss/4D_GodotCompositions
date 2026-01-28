@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c76sfs3t5dnk3"]
+[gd_scene format=3 uid="uid://c76sfs3t5dnk3"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_ma1gl"]
+[ext_resource type="Script" uid="uid://dm12u0brsyw5y" path="res://main.gd" id="1_ma1gl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tdu0g"]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=1471631018]
 material = SubResource("CanvasItemMaterial_tdu0g")
 layout_mode = 3
 anchors_preset = 15
