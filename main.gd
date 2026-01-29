@@ -1,8 +1,10 @@
 extends Control
 
+
+
 #called once at the beginning of the program.
 func _ready() -> void:
-	pass # Replace with function body.
+	queue_redraw()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +23,7 @@ func _process(_delta)->void:
 		
 
 func _draw() -> void:
+	
 	for i in 100:
 		#random position within the size of the screen
 		var pos_x : float = randf_range(0, size.x)
@@ -31,18 +34,20 @@ func _draw() -> void:
 		var radius : float = randf_range(0,100)
 		
 		#random color
-		var red : float = randf_range(0,1)
-		var blue : float = randf_range(0,1)
-		var green : float = randf_range(0,1)
+		var hue : float = randf_range(0,1)
+		var saturation : float = randf_range(0,1)
+		var value : float = randf_range(0,1)
 		var alpha : float = randf_range(0,1) #1 is fully opaque!
-		var color : Color = Color(red,green,blue,alpha)
+		#var color : Color = Color(red,green,blue,alpha)
+		var color : Color = Color.from_hsv(hue,saturation,value, alpha)
 		
 		draw_circle(pos,radius,color)
 		
+		
 		#Exercises:
 		#1.  Try to limit the rgb values to create an analogous color composition
-		#2.  Try to create a complementary color composition
-		#3.  Try to create two layers of circles using 2 different for loops
+		#2.  Try to create two layers of circles using 2 different for loops.
+		#3.  Try to create a complementary color composition (using two different for loops)
 		#4.  Try to limit the positions and radii on the two different layers. 
 			#you might try large analogous circles in the back, then small contrasting
 			#colors along a rule of thirds line.
