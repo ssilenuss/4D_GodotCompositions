@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bru8ode7uuo6n"]
+
+[ext_resource type="Script" uid="uid://cntq5a5hdlxed" path="res://RandomVideo/random_video.gd" id="1_0acwa"]
+[ext_resource type="VideoStream" uid="uid://bo8kg5fqa6e2v" path="res://ogvs/1_1.ogv" id="2_x0621"]
+[ext_resource type="VideoStream" uid="uid://bhsbt0lq507i" path="res://ogvs/2_1.ogv" id="3_fcnhp"]
+[ext_resource type="VideoStream" uid="uid://d3fmostw53gtu" path="res://ogvs/3_1.ogv" id="4_v211e"]
+[ext_resource type="VideoStream" uid="uid://bsvatev6tfeqd" path="res://ogvs/test0.ogv" id="5_mm6w1"]
+[ext_resource type="VideoStream" uid="uid://cp03aq8pdajdc" path="res://ogvs/test1.ogv" id="6_8ixxh"]
+
+[node name="RandomVideo" type="VideoStreamPlayer" unique_id=524422054]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0acwa")
+videos = Array[VideoStreamTheora]([ExtResource("2_x0621"), ExtResource("3_fcnhp"), ExtResource("4_v211e"), ExtResource("5_mm6w1"), ExtResource("6_8ixxh")])
+
+[connection signal="finished" from="." to="." method="_on_finished"]
