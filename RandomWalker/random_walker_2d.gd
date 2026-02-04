@@ -4,7 +4,7 @@ var circles : Array[Circle] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	RenderingServer.viewport_set_clear_mode(get_viewport().get_viewport_rid(), RenderingServer.VIEWPORT_CLEAR_NEVER)
+	RenderingServer.viewport_set_clear_mode(get_viewport().get_viewport_rid(), RenderingServer.VIEWPORT_CLEAR_ONLY_NEXT_FRAME)
 	
 	for i in 100:
 		var c : Circle = Circle.new()
