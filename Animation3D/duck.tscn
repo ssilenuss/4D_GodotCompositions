@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bhxm0xamngmdu"]
+
+[ext_resource type="Material" uid="uid://cmajnliqmlnqk" path="res://Animation3D/Duck.material" id="1_fbnf5"]
+[ext_resource type="Script" uid="uid://cknccbbvvjy3e" path="res://Animation3D/neck_pivot.gd" id="2_awbnx"]
+[ext_resource type="Material" uid="uid://c3i2nxenc3uvm" path="res://Animation3D/eye_white.material" id="3_1qk68"]
+[ext_resource type="Material" uid="uid://ddo6enyy8rmnq" path="res://Animation3D/pupil_black.material" id="4_b40cx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d3d4p"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qrhhh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ott0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sxux8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0do0"]
+albedo_color = Color(1, 0.6313726, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_wupwy"]
+left_to_right = 1.0
+size = Vector3(0.45, 1.08, 0.29)
+
+[node name="Duck" type="Node3D" unique_id=987724308]
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=715524441]
+transform = Transform3D(1, 0, 0, 0, 0.56, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("1_fbnf5")
+mesh = SubResource("SphereMesh_d3d4p")
+
+[node name="Neck_Pivot" type="Node3D" parent="Body" unique_id=823002028 node_paths=PackedStringArray("duck_root")]
+transform = Transform3D(0.9707372, 0, -0.24014409, 0, 1.7857143, 0, 0.24014409, 0, 0.9707372, 0.26184517, 0.26749745, 0)
+script = ExtResource("2_awbnx")
+duck_root = NodePath("../..")
+
+[node name="Head" type="MeshInstance3D" parent="Body/Neck_Pivot" unique_id=348195972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23359615, 0.34952003, 0)
+material_override = ExtResource("1_fbnf5")
+mesh = SubResource("SphereMesh_qrhhh")
+
+[node name="left_eye" type="MeshInstance3D" parent="Body/Neck_Pivot/Head" unique_id=1163873464]
+transform = Transform3D(0.13969778, -0.04673029, 0.12000343, 0.08438804, 0.16695787, -0.03322261, -0.09727902, 0.077726185, 0.14351112, 0.29011846, 0.18423337, -0.23060519)
+material_override = ExtResource("3_1qk68")
+mesh = SubResource("BoxMesh_7ott0")
+
+[node name="pupil" type="MeshInstance3D" parent="Body/Neck_Pivot/Head/left_eye" unique_id=429097809]
+transform = Transform3D(0.12802255, 0, -0.15708302, 0, -0.5406299, 0, 0.043333244, 0, 0.46408176, 0.53392, 3.8072468e-08, -0.005256146)
+material_override = ExtResource("4_b40cx")
+mesh = SubResource("CapsuleMesh_sxux8")
+
+[node name="right_eye" type="MeshInstance3D" parent="Body/Neck_Pivot/Head" unique_id=86122367]
+transform = Transform3D(0.1553523, -0.09069223, -0.061160438, 0.08438804, 0.16695789, -0.033222616, 0.0696013, 1.3503589e-09, 0.17679274, 0.3546579, 0.18423337, 0.15373886)
+material_override = ExtResource("3_1qk68")
+mesh = SubResource("BoxMesh_7ott0")
+
+[node name="pupil" type="MeshInstance3D" parent="Body/Neck_Pivot/Head/right_eye" unique_id=325283802]
+transform = Transform3D(0.047749102, 0, -0.0585879, 0, -0.20164098, 0, 0.01616218, 0, 0.17309049, 0.53392, 3.8072468e-08, -0.005256146)
+material_override = ExtResource("4_b40cx")
+mesh = SubResource("CapsuleMesh_sxux8")
+
+[node name="bill top" type="MeshInstance3D" parent="Body/Neck_Pivot/Head" unique_id=687980070]
+transform = Transform3D(0.01770753, 0.34955177, 0, -0.34955177, 0.01770753, 0, 0, 0, 0.35, 0.628109, -0.052063704, -0.046439778)
+material_override = SubResource("StandardMaterial3D_f0do0")
+mesh = SubResource("PrismMesh_wupwy")
+
+[node name="bill bottom" type="MeshInstance3D" parent="Body/Neck_Pivot/Head" unique_id=1165134988]
+transform = Transform3D(0.1846146, 0.29119673, -0.060182262, 0.29530293, -0.18784797, -0.003048703, -0.03483682, -0.049169045, -0.34477356, 0.6167251, -0.08681917, -0.04414532)
+material_override = SubResource("StandardMaterial3D_f0do0")
+mesh = SubResource("PrismMesh_wupwy")
+
+[node name="billpivot" type="Node3D" parent="Body/Neck_Pivot" unique_id=2090436134]
+transform = Transform3D(0.98345315, 0, -0.18116233, 0, 1, 0, 0.18116233, 0, 0.98345315, 0.6609786, 0.27745283, -0.017213931)
